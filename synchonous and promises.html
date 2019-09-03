@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Synchronous vs. Asynchronous Functions</title>
+    <meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+    <h1>Heading</h1>
+
+
+
+    <!--Javascript is synchonous behalve als er iets tussenkomt dat tijd vraagt (ook al is dit 0 miliseconden (lijn 57)-->
+
+
+
+    <script>
+        let log = console.log;
+        /**funny way to shorten code, ga ik nu maar eens laten staan**/
+        let a = 5;
+        let b = 50;
+
+        let a1 = (function () {
+            return 5
+        })()
+
+        let b1 = (function () {
+            return 50
+        })()
+
+        log(a1);
+        log(b1);
+
+        let a2 = function (num) {
+            return 5 * num
+        }
+
+        let b2 = function () {
+            return 50
+        }
+
+
+        /**
+        setTimeout, callbacks for geolocation..., events (onmouseover) 
+        javascript has no clue when you will do it so this becomes asynchronous (put aside)
+        **/
+
+        let a3 = 100;
+        setTimeout(function () {
+            a3++;
+        }, 0);
+        log(a3);
+        setTimeout(function () {
+            log(a3)
+        }, 0)
+        /**
+PROMISES wrappers arround asynchronous actions
+        **/
+        let p = new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                resolve("Yo!");
+            }, 0)
+
+        });
+        log(p);
+        setTimeout(function () {
+            log(p);
+        }, 10);
+        log(p);
+        /**
+when the garden is cleaned THEN you will get a gift
+        **/
+        p.then(function (val) {
+            log(val);
+        })
+    </script>
+</body>
+<!--please also watch tricky javascript questions
+    by techsith-->
+
+</html>

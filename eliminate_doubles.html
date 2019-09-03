@@ -1,0 +1,15 @@
+<script>
+    const a = [33, 46, 68, 8, 8, 64, 33];
+    const b = [];
+    console.log("7 keer in for loop");
+    for (let i = 0; i < a.length; i++) {
+        console.log(i + ".keer i=" + i + "en a i =" + a[i] + " b =" + b);
+        var val = a[i];
+        if (b.indexOf(val) === -1)
+
+        {
+            b.push(val);
+        }
+    }
+    console.log(b);
+</script>
