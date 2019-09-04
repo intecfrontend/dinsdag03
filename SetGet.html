@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Class Gettter/Setter</h2>
+
+<p>A demonstration of how to add getters and setters in a class, and how to use the getter to get the property value.</p>
+
+<p id="demo"></p>
+
+<script>
+class Person {
+  constructor(fullName) {
+    var words = fullName.toString().split(' ');
+        this.firstName = words[0] || '';
+        this.lastName = words[1] || '';
+  }
+  get first() {
+    return this.firstName;
+  }
+  
+  get last() {
+    return this.lastName;
+  }
+  set full(x) {
+    var words = x.toString().split(' ');
+        this.firstName = words[0] || '';
+        this.lastName = words[1] || '';
+  }
+}
+
+orhan = new Person("Orhan Nurkan");
+ben = new Person("ben edickt");
+muhammet= new Person("muhammet Akbel");
+console.log(orhan.first);
+console.log(orhan.lastName) // Franklin
+
+console.log(ben.first);
+console.log(ben.lastName) // Franklin
+
+console.log(muhammet.first);
+console.log(muhammet.lastName) // Franklin
+
+</script>
+
+</body>
+</html>
